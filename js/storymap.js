@@ -3,6 +3,9 @@
 // Updated on 2/22/2017 | version 2.1 | MIT License
 (function ($) {
 
+
+
+
     $.fn.storymap = function(options) {
 
         var defaults = {
@@ -90,24 +93,41 @@
 
             var sections = element.find(searchfor);
 
+
+
             sections.on('viewing', function () {
                 $(this).addClass('viewing');
+                $(".arrow-down").css("left", "2%");
+
 
                 if (scenes[$(this)[0].attributes['data-scene'].value].position == "fullpage") {
-                    $(this).addClass('opac');
-                    $(".fullscreen-image").addClass('fullpage');
+                    $(this).addClass('section-opacity');
+                    $(this).find(".background-img-setting").addClass('fullpage');
+                    $(this).find(".background-img-setting").css("display", "block");
                     $(".arrow-down").css("left", "50%");
                 } else {
                     console.log("no position parameter.")
                 }
+
+
+                if ($(this)[0].attributes["data-scene"].value == $("section").last()[0].attributes["data-scene"].value) {
+                    $(".arrow-down").removeClass("glyphicon-menu-down")
+                        .addClass("glyphicon-home");
+
+                } else {
+                    $(".arrow-down").removeClass("glyphicon-home")
+                        .addClass("glyphicon-menu-down");
+                }
+
             });
 
             sections.on('notviewing', function () {
                 $(this).removeClass('viewing');
-                $(this).removeClass('opac');
 
                 if (scenes[$(this)[0].attributes['data-scene'].value].position == "fullpage") {
-                    $(".arrow-down").css("left", "2%");
+                    $(this).removeClass('section-opacity');
+                    $(this).find(".background-img-setting").removeClass('fullpage');
+                    $(this).find(".background-img-setting").css("display", "none");
                 } else {
                     console.log("no position parameter.")
                 }
@@ -119,8 +139,15 @@
             var downBtn = element.find('.arrow-down');
 
             downBtn.click(function () {
-                window.scrollBy(0, $(window).height() / 4);
+                if ($(".arrow-down")[0].className.includes("menu")) {
+                    window.scrollBy(0, $(".viewing").offset().top -$(window).scrollTop() + $('.viewing').height());
+                } else if ($(".arrow-down")[0].className.includes("home")) {
+                    window.scrollTo(0, 0);
+                }
+
             });
+
+
 
             var map = settings.createMap();
             var currentLayerGroup = L.layerGroup().addTo(map);
@@ -197,10 +224,6 @@
                 {
                     legendControl.addTo(map);
                 }
-
-
-                // if you don't want to show a marker at the center of the map, you can simply comment the following line.
-                // currentLayerGroup.addLayer(L.marker([scene.lat, scene.lon]));
 
                 map.setView([scene.lat, scene.lng], scene.zoom, 1);
             }
