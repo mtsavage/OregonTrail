@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Oregon Trail: A True Account of the Oregon Trail as told by James Akin Jr.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--meta data for sharing links on Facebook-->
+    <meta property="og:title" content="The Oregon Trail" />
+    <meta property="og:url" content="http://cdn.rawgit.com/mtsavage/storymap/master/index.html" />
+    <meta property="og:description" content="A True Oregon Trail Account" />
+    <meta property="og:image" content="img/.png" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
+    <!--facebook and info icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--use a better font for this web map-->
+    <link href='http://fonts.googleapis.com/css?family=Helvetica' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Griffy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="css/storymap.css">
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+
+    <!-- Mapbox GL -->
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css" rel='stylesheet' />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js"></script>
+    <!--add required libraries-->
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <script src="http://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+
+    <!--story map plugin-->
+    <script src="js/storymap.js"></script>
+
+    <!-- bing map -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
+    <script src="http://gmaclennan.github.io/leaflet-bing-layer/leaflet-bing-layer.js"></script>
+
+    <!-- mini globle map -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="js/globeminimap.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 main">
+
+            <section data-scene="overview1">
+                <div class= "overview fullscreen-image">
+                    <br>
+                    <br>
+                    <h1 class="text-center">The Oregon Trail:</h1>
+                    <br>
+                    <h2 class="text-center" style="margin-left:300px;margin-right:300px">A True Account From the Diary of James Akins</h2>
+                    <br>
+                    <br>
+                    <p style="margin-left:300px;margin-right:300px"> During the time span of about 1830 to the late 1880’s, and great historical event occurred in America.
+                        Thousands of people voluntarily uprooted their lives to cross the vast and uncharted west to travel to
+                        the Oregon Territory. This great migration was known as the Oregon Trail. </p>
+                    <br>
+                    <p style="margin-left:300px;margin-right:300px"> The Oregon Trail was not an easy venture, nor was it a journey for the faint of heart.
+                        It was a long strenuous trek which claimed the lives of many who set out west. This is known
+                        by the many firsthand accounts written by those travelers, through these accounts it is easy to
+                        obtain a vivid picture of what that journey was like. </p>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+
+
+
+            <!--<h2 class="page-header">The Oregon Trail: </h2>-->
+                <!--<h3 class="page-header">A True Account From the Diary of James Akins </h3>-->
+                <!--<h4 class="font-size:12pt">Madeleine Savage, savagem@oregonstate.edu, Oregon State University</h4>-->
+            <!--<section data-scene="overview">-->
+
+                <!--<img src="img/Wagon_Train3.jpg" class="img-responsive" alt="responsive image" align=center alt-text="corvallis oregon">-->
+                <!--<br>-->
+                <!--<p> During the time span of about 1830 to the late 1880’s, and great historical event occurred in America.-->
+                    <!--Thousands of people voluntarily uprooted their lives to cross the vast and uncharted west to travel to-->
+                    <!--the Oregon Territory. This great migration was known as the Oregon Trail. </p>-->
+                <!--<p> The Oregon Trail was not an easy venture, nor was it a journey for the faint of heart.-->
+                    <!--It was a long strenuous trek which claimed the lives of many who set out west. This is known-->
+                    <!--by the many firsthand accounts written by those travelers, through these accounts it is easy to-->
+                    <!--obtain a vivid picture of what that journey was like. </p>-->
+            <!--</section>-->
+
+            <section data-scene="introduction">
+                <h2>Oregon Trail Party</h2>
+                <br>
+                <img class="img-responsive img-border=25px img-right" src="img/Family.jpg" style="margin-left:5px;margin-right:5px align=left HSPACE=”100” VSPACE=”100” alt="">
+                <p>This particular story is about a party made of four families, the Akin, Booth, Ingram, and Ritchey families.
+                    In 1852 they decided to make the large move from Salem, Iowa to Portland, Oregon taking the Oregon Emigrant
+                    trail. In total the party was made up of 39 people, 10 adults and 29 children, the children ranging from age
+                    nineteen to infancy. A party of this size, especially one of such a large age range, was not an easy move.
+                    There were an abundance of hardships and trials that these families faced.  </p>
+
+
+
+            </section>
+
+            <section data-scene="SalemIO">
+                <h2>Salem, IA</h2>
+                <img class="img-responsive img-border=10px img-left" src="img/Family2.jpg" alt="Emigrant Family">
+                <br>
+                <p>James Akin, Jr., who was 19 years old when his family set off for the Oregon Trail, was the eldest of the children.
+                    He kept a journal where he nearly entered their progress and any major events they encountered on the trail nearly everyday.
+                    Each entry was short and to the point, but it still gave a good outline of the family's journey and struggles. </p>
+                <p>He starts his diary on Thursday, April 15, 1852 when the party leaves their old home, Salem, Iowa. For the first couple
+                    days he comments on the weather,  that the roads are good, that they crossed a creek, and that their wood supply is good.  </p>
+
+            </section>
+
+            <section data-scene="scene1">
+                <h2>Fording Rivers</h2>
+                <img class="img-responsive img-border img-left" src="img/Fording_River.jpg" alt="Emigrant Family">
+                <br>
+                <p>Crossing rivers and streams was common along the Oregon Trail. Many times throughout the diary,
+                    Akins speaks of how the party forded a river, took a ferry, or a toll bridge across. Crossing rivers,
+                    however, did lead to several mishaps to many emigrants. For instance, on May 7th, Akins reported that
+                    a boat sank on the Nishnabotna River. Additionally, as the party approached the Missouri river, Akins
+                    mentions that one man in a different party drowned on May 11th from a ferry flipping over. He mentions
+                    again that a boat sinks on May 14th.</p>
+                <p>
+
+
+            </section>
+
+            <section data-scene="scene2">
+                <h2>Using Resources on the Trail</h2>
+                <br>
+                <img class="img-responsive img-border img-right " src="img/bufflo_chips.jpg" align=left
+                     style="margin: 0px 18px 0px 0px;"  alt="">
+                <p>To sustain themselves for the whole journey, they had to use what they could long the way, so hunting
+                    and gathering was a regular part of their routine. Akins reports that on June 7th the party hunted
+                    for antelope. They also collected Buffalo chips (dried buffalo dung) to use for fire fuel.</p>
+
+            </section>
+
+            <section data-scene="scene3">
+
+                <h2>Landmarks</h2>
+                <img class="img-responsive img-border img-left" src="img/Chimney_Rock2.jpg" alt="Chimney RockS">
+                <br>
+                <p>Sickness was the greatest hardship and killer which took the lives of many emigrants, including
+                    those in this party. On June 14th, as the party approached two major landmarks on the trail,
+                    Chimney rock and Scotts bluff, where they stopped to camp because of the sickness of a party member.
+                    On June 16th,the first life is claimed on the trail as Louisa Ritchey, wife of Stuart Ritchey, dies of cholera
+                    at the age of 29.  </p>
+
+            </section>
+
+            <section data-scene="scene4">
+
+                <h2>Hardships Ahead</h2>
+                <img class="img-responsive img-border img-left" src="img/Elva_grave.jpg" alt="Grave of Elva Ingram">
+                <br>
+                <p>Hardships continue on the trail as once again sickness makes its rounds among the company. Another
+                    death occurs on June 23st, as the Elva Ingram, young daughter of James and Ritta Ingram, dies.
+                    The party continues, but hardship still continues as the party goes without water for several miles.
+                    They finally run into the Platte River, where they can quench their thirst, but resources still run
+                    low as they cannot find grass for the cattle. They find themselves in a wood shortage as well
+                    until they pass more timber and grass filled areas on June 28th.  </p>
+
+            </section>
+
+            <section data-scene="scene5">
+
+                <h2>Natural Scenery</h2>
+                <img class="img-responsive img-border img-left" src="img/Devils_gate.jpg" alt="Devil Gate">
+                <br>
+                <p>The Oregon Trail did not lack in natural beauty. Along the way were an abundance of amazing scenery
+                    and iconic natural features. On July 2nd the company passed two of these features, Independence Rock
+                    and Devil Gate. </p>
+
+            </section>
+
+            <section data-scene="scene6">
+
+                <h2>Rocky Mountains</h2>
+                <img class="img-responsive img-border img-left" src="img/Rocky_Mountains.jpg" alt="Rocky Mountains">
+                <br>
+                <p>The trek continues as the company passes over summits of Rocky Mountains on July 10th through the
+                    South Pass. The climb is gradual, and Akins comments on the pleasant weather and good roads. </p>
+            </section>
+
+            <section data-scene="scene7">
+
+                <h2>Idaho Boarder</h2>
+                <img class="img-responsive img-border img-left" src="img/bear_mountain.jpg" alt="Bear Mountain">
+                <br>
+                <p>The party is coming closer and closer to their goal as the Idaho boarder quickly approaches. Nearing
+                    the Idaho Line in late July. They have to go over the more rugged summit of the Bear Mountains which
+                    Akins describes as rough and hilly. A week later, however, the company becomes sick again, and one
+                    of the children of Caleb and Alice Ritchey, Miranda Ritchey, passes away on July 31st.</p>
+            </section>
+
+            <section data-scene="scene8">
+
+                <h2>Drought Ahead</h2>
+                <img class="img-responsive img-border img-left" src="img/Native_Americans.jpg" alt="">
+                <br>
+                <p>On August 8th, Akins reports that they had gone without water for over 13 miles as they travel dusty
+                    roads with dead cattle scattered through the landscape. The hot, dry trek goes on, the party even
+                    travels at night more often than day to avoid the heat. On August 14th, they come across some
+                    Native Americans and they trade tea and salt for fresh salmon. Fresh food at this point in the journey was
+                    more scarce and therefore highly valued. </p>
+            </section>
+
+            <section data-scene="scene9">
+
+                <h2>Tragedy on the Trail</h2>
+                <img class="img-responsive img-border img-left" src="img/fort_boisie.jpg" align=left
+                     style="margin: 0px 18px 1px 0px;" alt="Fort Boise">
+                <p>A tragic few weeks is about to begin when Eliza Akin (mother 38) become sick and dies of typhoid
+                    fever. A couple days later, on August 22nd, Moses Rhodes dies. There is nothing else to do but
+                    continue the journey. They reach Fort Boise, but after leaving, the party becomes sick once again in
+                    early September. The party decides to rest for a while, but still the lives of Eliza Ritchey
+                    (6 years old) and Abe Gilliam are claimed on September 9th and 15th.</p>
+            </section>
+
+            <section data-scene="scene10">
+
+                <h2>Grande Ronde and Blue Mountains</h2>
+                <img class="img-responsive img-border img-left" src="img/Cattle.jpg" alt="">
+                <br>
+                <p>On September 16th, the party approaches the west Side of Grande Ronde river and are about to cross the
+                    Blue mountains. Akins reports that they unfortunately lose 9 head of cattle, which causes a great
+                    nuisance to the travelers. They spend some time looking for the renegade cattle and then continue their journey.</p>
+            </section>
+
+            <section data-scene="scene11">
+
+                <h2>John Day River</h2>
+                <img class="img-responsive img-border img-left" src="img/wheel_ruts.jpg" alt="">
+                <br>
+                <p>The party continues, however hardships do not cease even as they come closer and closer to their
+                    destination. Water becomes scarce, and the party fears the worst as the days go on. They finally
+                    come across the John Day river five days later on October 1st. </p>
+            </section>
+
+            <section data-scene="scene12">
+
+                <h2>Rafting the Columbia</h2>
+                <img class="img-responsive img-border img-left" src="img/ColumbiaRiver2.jpg" alt="">
+                <br>
+                <p>On October 1st,  the party is within 2 miles from the Dales and is extremely close to their goal.
+                    The last leg involves rafting down the Columbia river. This endeavor of making their own raft takes
+                    a lot of preparation. Akins states that they “cut logs and cork wagon beds water tight all day” (55).
+                    They continue with their rafting preparations for several days, and then they take off on it on
+                    October 6th.  Even after the raft is in the water, they have to take it out to make modifications on
+                    October 11th. </p>
+            </section>
+
+            <section data-scene="scene13">
+
+                <h2>The Journeys End</h2>
+                <img class="img-responsive img-border img-left" src="img/portland.jpg" alt="">
+                <br>
+                <p>The rafting leg of the journey finishes on October 14th when the party lands in a small settlement
+                    in the Cascades. From there, they take a steamboat the rest of the way to Portland. Tired, sick,
+                    and ragged they finish their journey of nearly 2,000 miles in a timespan of six months. All families
+                    are able to make Donation Land Claims in the Willamette Valley. The story of the long journey of the
+                    Akin, Booth, Ingram, and Ritchey families ends there.
+                </p>
+            </section>
+
+
+            <!--add a arrow for scrolling down the texts-->
+            <div class="glyphicon glyphicon-menu-down glyphicon-align-center arrow-down"></div>
+        </div>
+        <!--map div-->
+        <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
+
+    </div>
+    <!--facebook icon-->
+    <a class="fa fa-facebook-square btn" href="https://facebook.com/sharer.php?u=http://www.facebook.com" target="_blank"></a>
+    <!--info icon-->
+    <i class="fa fa-info-circle btn" style="top:50px" data-toggle="modal" data-target="#info-modal"></i>
+
+    <!--the info page-->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p> The Oregon Trail was the largest known voluntary migration in history. This story map
+                        depicts the journey of four families, the Akin, Booth, Ingram, and Ritchey families. In 1852
+                        they decided to make the large move from Salem, Iowa to Portland, Oregon taking the Oregon
+                        Emigrant trail. The story of these families was recoded in diary of James Akin, Jr., who was 19
+                        and the eldest of the children. In this journal, he entered their progress and any major events
+                        they encountered on the trail. </p>
+                    <p><b>storymap.js</b> | Released Date: 03/19/2017 | Version: 2.1 | MIT License </p>
+                    <p><b>Author: Madeleine Savage</b> | College of Earth, Ocean, Atmospheric Science | Oregon State University </p>
+                    <p>The context about Oregon Trail journey of the the Akin, Booth, Ingram, and Ritchey families
+                        was collected from "The Oregon Trail Diary of James Akin, Jr. in 1852" with comments by Webber,
+                        Bert. Published by: Webb Research Group. 1989 Print.</p>
+                    <p>The images acquired from <a>www.images.google.com</a></p>
+                    <p>This story map uses geospatial data from Mapbox.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main javascript -->
+<script type="text/javascript">
+    /**
+     * Created by jakob on 2/22/2017.
+     */
+
+// Create Legend Contents in html format
+   var county_legend ='<i style="background: black; opacity: 0.0"></i><p><b>Counties</b></p>';
+    var corvallis_admin_legend = '<i style="background: orange; opacity: 0.0"></i><p><b>Corvallis</b></p>';
+    var compass = '<img class="img-responsive" src="img/compass3.png"></img>'
+
+
+    // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
+    // var layers = {
+    //      'layer1': [layer1, legend1]
+    //      'layer2': [layer2, legend2]
+    //      ...
+    // }
+
+    var wagon = L.icon({
+        iconUrl: 'img/coveredwagon_icon.ico',
+        shadowUrl: 'img/shadow_icon.png',
+        iconSize:     [54, 65], // size of the icon
+        shadowSize:   [54, 65], // size of the shadow
+        iconAnchor:   [30, 50], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    var grave = L.icon({
+        iconUrl: 'img/gravestone.png',
+        iconSize:     [54, 65], // size of the icon
+        shadowSize:   [54, 65], // size of the shadow
+        iconAnchor:   [30, 50], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    //http://leafletjs.com/examples/custom-icons/
+    var Token = 'pk.eyJ1IjoibXNsZWUiLCJhIjoiclpiTWV5SSJ9.P_h8r37vD8jpIH1A6i1VRg';
+    var layers = {
+        'bing' : [L.tileLayer.bing('AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L'),county_legend],
+        'stop0': [L.marker([40.852396,-91.62135],{icon:wagon})],
+        'stop1': [L.marker([41.323718,-95.919270],{icon:wagon})],
+        'stop2': [L.marker([40.690105,-99.345280],{icon:wagon})],
+        'stop3': [L.marker([41.703436,-103.348373],{icon:wagon})],
+        'stop4': [L.marker([42.204571,-104.555861],{icon:wagon})],
+        'stop5': [L.marker([42.493318,-107.131750],{icon:wagon})],
+        'stop6': [L.marker([42.338119,-108.937256],{icon:wagon})],
+        'stop7': [L.marker([42.018404,-111.037000],{icon:wagon})],
+        'stop8': [L.marker([43.020143,-112.634718],{icon:wagon})],
+        'stop9': [L.marker([42.944509,-115.317671],{icon:wagon})],
+        'stop10': [L.marker([45.080669,-118.333211],{icon:wagon})],
+        'stop11': [L.marker([45.671116,-120.501929],{icon:wagon})],
+        'stop12': [L.marker([45.593585,-121.144090],{icon:wagon})],
+        'stop13': [L.marker([45.518775,-122.533177],{icon:wagon})],
+        'counties': [ L.geoJson.ajax('assets/counties.geojson',  {
+            color: 'invisible',
+            weight: 0,
+            opacity: 0.0}), county_legend],
+       // 'compass': L.tileLayer.im
+        'corvallis admin': [L.geoJson.ajax('http://www.mapio.us/geoserver/ceoas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ceoas:admin&outputFormat=application%2Fjson',          {
+            color: 'orange',
+            weight: 5}), corvallis_admin_legend],
+        //'forest cover 2010': [ L.tileLayer('http://earthengine.google.org/static/hansen_2013/tree_alpha/{z}/{x}/{y}.png'), forest_legend],
+        'satellite': [ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw', {
+            id: 'mapbox.satellite'
+        })],
+        'trail': [L.geoJson.ajax('assets/ORTrail_line.geojson',{color: '#3e342f', wieght: 12, opacity: 0.8}), compass ],
+        'stops':[L.geoJson.ajax('assets/stops.geojson',{color: 'gray', wieght: 5, icon: wagon}), county_legend ],
+        //'compass': L.image ('img/compass-rose.png'),
+        'basemap': [L.mapboxGL({
+            accessToken: Token,
+            style: 'https://raw.githubusercontent.com/osm2vectortiles/mapbox-gl-styles/master/styles/bright-v9-cdn.json'
+        })]
+
+    };
+
+    var scenes = {
+
+        overview1: {lat: 41.957387, lng:  -113.984362, zoom: 5, position: "fullpage"},
+
+        //overview: {lat: 41.957387, lng:  -113.984362, zoom: 5, layers: ['trail','stops','stop1']},
+
+        introduction: {lat: 40.957387, lng: -113.984362, zoom: 5, layers: ['trail']},
+
+        SalemIO: {lat: 40.852396, lng: -91.621350, zoom: 6, layers: ['trail','stop0']},
+
+        scene1: {lat: 41.323718, lng: -95.919270, zoom: 7, layers: ['trail','stop1']},
+
+        scene2: {lat: 40.690105, lng: -99.345280, zoom: 7, layers: ['trail', 'stop2']},
+
+        scene3: {lat: 41.703436, lng: -103.348373, zoom: 7, layers: ['trail', 'stop3']},
+
+        scene4: {lat: 42.204571, lng: -104.555861, zoom: 7, layers: ['trail','stop4']},
+
+        scene5: {lat: 42.493318, lng: -107.131750, zoom: 7, layers: ['trail', 'stop5']},
+
+        scene6: {lat: 42.338119, lng: -108.937256, zoom: 7, layers: ['trail','stop6']},
+
+        scene7: {lat: 42.018404, lng: -111.037000, zoom: 7, layers: ['trail','stop7']},
+
+        scene8: {lat: 43.020143, lng: -112.634718, zoom: 7, layers: ['trail','stop8']},
+
+        scene9: {lat: 42.944509, lng: -115.317671, zoom: 7, layers: ['trail','stop9']},
+
+        scene10: {lat: 45.080669, lng: -118.333211, zoom: 7, layers: ['trail','stop10']},
+
+        scene11: {lat: 45.671116, lng: -120.501929, zoom: 7, layers: ['trail','stop11']},
+
+        scene12: {lat: 45.593585, lng: -121.144090, zoom: 7, layers: ['trail','stop12']},
+
+        scene13: {lat: 44.518775, lng: -122.533177, zoom: 7, layers: ['trail','stop13']}
+
+
+    };
+
+    $('.main').storymap({
+        scenes: scenes,
+        layers: layers,
+        legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
+        createMap: function () {
+            // create a map in the "map" div, set the view to a given place and zoom
+            var map = L.map('map', {zoomControl: false, scrollWheelZoom: false});
+
+            // add an base map, which can be either OSM, mapbox, tilelayer, wmslayer or those designed by yourself.
+//            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//                maxZoom: 19,
+//                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//            }).addTo(map);
+
+            L.mapboxGL({
+                accessToken: Token,
+                style: 'mapbox://styles/mslee/cif5p01n202nisaktvljx9mv3'
+            }).addTo(map);
+
+            L.control.scale({position: 'bottomright', metric: false}).addTo(map);
+
+            // create a mini globe as the overview map control.
+            var miniMap = new L.Control.GlobeMiniMap({
+                marker:'#3a633c',
+                position: 'bottomright'
+            }).addTo(map);
+
+            return map;
+        }
+    });
+</script>
+</body>
+</html>

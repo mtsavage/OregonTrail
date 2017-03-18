@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Lat": 40.852396, "Long": -91.62135 }, "geometry": { "type": "Point", "coordinates": [ -91.62135, 40.852396 ] } },
+{ "type": "Feature", "properties": { "Lat": 41.323718, "Long": -95.91927 }, "geometry": { "type": "Point", "coordinates": [ -95.91927, 41.323718 ] } },
+{ "type": "Feature", "properties": { "Lat": 40.690105, "Long": -99.34528 }, "geometry": { "type": "Point", "coordinates": [ -99.34528, 40.690105 ] } },
+{ "type": "Feature", "properties": { "Lat": 41.703436, "Long": -103.348373 }, "geometry": { "type": "Point", "coordinates": [ -103.348373, 41.703436 ] } },
+{ "type": "Feature", "properties": { "Lat": 42.204571, "Long": -104.555861 }, "geometry": { "type": "Point", "coordinates": [ -104.555861, 42.204571 ] } },
+{ "type": "Feature", "properties": { "Lat": 42.493318, "Long": -107.13175 }, "geometry": { "type": "Point", "coordinates": [ -107.13175, 42.493318 ] } },
+{ "type": "Feature", "properties": { "Lat": 42.338119, "Long": -108.937256 }, "geometry": { "type": "Point", "coordinates": [ -108.937256, 42.338119 ] } },
+{ "type": "Feature", "properties": { "Lat": 42.018404, "Long": -111.037 }, "geometry": { "type": "Point", "coordinates": [ -111.037, 42.018404 ] } },
+{ "type": "Feature", "properties": { "Lat": 43.020143, "Long": -112.634718 }, "geometry": { "type": "Point", "coordinates": [ -112.634718, 43.020143 ] } },
+{ "type": "Feature", "properties": { "Lat": 42.944509, "Long": -115.317671 }, "geometry": { "type": "Point", "coordinates": [ -115.317671, 42.944509 ] } },
+{ "type": "Feature", "properties": { "Lat": 44.175825, "Long": -116.943174 }, "geometry": { "type": "Point", "coordinates": [ -116.943174, 44.175825 ] } },
+{ "type": "Feature", "properties": { "Lat": 45.080669, "Long": -118.333211 }, "geometry": { "type": "Point", "coordinates": [ -118.333211, 45.080669 ] } },
+{ "type": "Feature", "properties": { "Lat": 45.671116, "Long": -120.501929 }, "geometry": { "type": "Point", "coordinates": [ -120.501929, 45.671116 ] } },
+{ "type": "Feature", "properties": { "Lat": 45.593585, "Long": -121.14409 }, "geometry": { "type": "Point", "coordinates": [ -121.14409, 45.593585 ] } },
+{ "type": "Feature", "properties": { "Lat": 45.518775, "Long": -122.533177 }, "geometry": { "type": "Point", "coordinates": [ -122.533177, 45.518775 ] } }
+]
+}
